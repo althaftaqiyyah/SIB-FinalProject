@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 def load(data, table_name):
     user = 'airflow'
     passwd = 'airflow'
-    hostname = 'postgres'
+    hostname = 'localhost'
     database = 'data_warehouse'
 
     conn_string = f'postgresql://{user}:{passwd}@{hostname}:5432/{database}'
