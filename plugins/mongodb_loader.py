@@ -1,5 +1,8 @@
 import pymongo
 
+with open('./data/mongo_url.txt', 'r') as url:    
+    mongo_url = url.read().strip()
+
 def get_mongo_client(mongo_uri):
     """Establish connection to the MongoDB."""
     try:
@@ -17,7 +20,7 @@ def get_mongo_client(mongo_uri):
         return None
 
 def load(database, collection):
-    mongo_uri = "mongodb+srv://glitchgoo:glitchgoo123@cluster0.tl2f7hj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    mongo_uri = mongo_url
     if not mongo_uri:
         print("MONGO_URI not set in environment variables")
 
@@ -30,7 +33,7 @@ def load(database, collection):
     return col
 
 def get_data(database, collection):
-    mongo_uri = "mongodb+srv://glitchgoo:glitchgoo123@cluster0.tl2f7hj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    mongo_uri = mongo_url
     if not mongo_uri:
         print("MONGO_URI not set in environment variables")
 

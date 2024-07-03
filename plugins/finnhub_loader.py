@@ -1,7 +1,10 @@
 import finnhub
 
 def scrape_news():
-    finnhub_client = finnhub.Client(api_key="cptutg9r01qnga5io0g0cptutg9r01qnga5io0gg")
+    with open('./data/api_key.txt', 'r') as key_file:
+        api_key = key_file.read().strip()
+
+    finnhub_client = finnhub.Client(api_key= api_key)
 
     news = finnhub_client.general_news('general', min_id=0)
 
